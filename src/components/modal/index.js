@@ -22,12 +22,14 @@ export function ModalPassword({password, handleClose})
                     <Text style={styles.passwordText}>{password}</Text>
                 </Pressable>
 
+                <Text>Aperte e segure para copiar a senha!</Text>
+
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.btn} onPress={handleClose}>
                         <Text style={styles.btnText}>Voltar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.btn, styles.btnSave]} >
+                    <TouchableOpacity style={[styles.btn, styles.btnSave]}>
                         <Text style={styles.btnSaveText}>Salvar Senha</Text>
                     </TouchableOpacity>
 
