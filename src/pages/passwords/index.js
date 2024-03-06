@@ -1,15 +1,35 @@
-import { View, Text, StyleSheet } from "react-native"
 
+import { View, Text, StyleSheet } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 
 export function Passwords()
 {
     return(
-        <View>
-            <Text>Minhas senhas</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.title}>Minhas senhas</Text>
+            </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    
+    container:{
+        flex: 1
+    },
+    header:{
+        backgroundColor: "#392de9",
+        paddingTop: 28,
+        paddingBottom: 30,
+        paddingLeft: 14,
+        paddingRight: 14,
+        borderBottomLeftRadius: 26, 
+        borderBottomRightRadius: 26, 
+
+    },
+    title: {
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold'
+    }
 })
