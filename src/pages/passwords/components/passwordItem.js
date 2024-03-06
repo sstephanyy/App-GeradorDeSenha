@@ -2,13 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Ionicons } from "@expo/vector-icons"
 
-export function PasswordItem({data}) {
+export function PasswordItem({data, removePassword}) {
+
     return(
         <View style={styles.container}>
             <Text style={styles.text}>{data}</Text>
             <View style={styles.icons}>
                 <Ionicons name="eye-outline" color={"white"} size={20}></Ionicons>
-                <Ionicons name="trash-outline" color={"white"} size={20}></Ionicons>
+                <Ionicons name="trash-outline" color={"white"} size={20} onPress={removePassword}></Ionicons>
             </View>
             
         </View>
