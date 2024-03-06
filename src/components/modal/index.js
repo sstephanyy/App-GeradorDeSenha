@@ -32,7 +32,7 @@ export function ModalPassword({password, handleClose})
                         <Text style={styles.btnText}>Voltar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.btn, styles.btnSave]}>
+                    <TouchableOpacity style={[styles.btn, styles.btnSave]} onPress={handleCopyPassword}>
                         <Text style={styles.btnSaveText}>Salvar Senha</Text>
                     </TouchableOpacity>
 
