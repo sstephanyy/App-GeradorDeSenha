@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useIsFocused } from "@react-navigation/native"
 import useStorage from '../../hooks/useStorage'
+import { PasswordItem } from './components/passwordItem'
 
 export function Passwords()
 {
@@ -28,7 +29,7 @@ export function Passwords()
                 <FlatList
                     data={listPasswords}
                     keyExtractor={ (item) => String(item )}
-                    renderItem={ ({item}) => <Text>{item}</Text> }
+                    renderItem={ ({item}) => <PasswordItem data={item}/> }
                 />
             </View>
 
