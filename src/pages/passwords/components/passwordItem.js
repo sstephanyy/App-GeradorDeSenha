@@ -1,38 +1,54 @@
-import React from "react";
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from "@expo/vector-icons"
 
-export function PasswordItem({data, removePassword}) {
+export function PasswordItem({ data, removePassword }) {
+    const [isIconClicked, setIsIconClicked] = useState(false);
 
-    return(
+    const handleIconClick = () => {
+        setIsIconClicked(!isIconClicked); // Toggle the state when the icon is clicked
+    };
+
+    return (
         <View style={styles.container}>
-            <Text style={styles.text}>{data}</Text>
+            <Text style={[styles.text, isIconClicked && styles.textHidden]}>{data}</Text>
             <View style={styles.icons}>
-                <Ionicons name="eye-outline" color={"white"} size={20}></Ionicons>
-                <Ionicons name="trash-outline" color={"white"} size={20} onPress={removePassword}></Ionicons>
+                <TouchableOpacity onPress={handleIconClick}>
+                    <Ionicons
+                        name={isIconClicked ? 'eye-off-outline' : 'eye-outline'}
+                        color="white"
+                        size={20}
+                    />
+                </TouchableOpacity>
+                <Ionicons name="trash-outline" color={"white"} size={20} onPress={removePassword} />
             </View>
-            
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         backgroundColor: 'black',
         width: '95%',
         marginTop: 14,
         padding: 10,
         alignSelf: 'center',
-        flexDirection:'row',
+        flexDirection: 'row',
         alignItems: 'center',
         borderRadius: 8,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        position: 'relative' // Ensure that the container is positioned relatively
     },
-    text:{
+    text: {
         color: 'white',
     },
-    icons:{
+    textHidden: {
+        color: 'transparent',
+        backgroundColor: 'white',
+        borderRadius: 4
+    },
+    icons: {
         flexDirection: 'row',
         gap: 10
-    }
-})
+    },
+});
